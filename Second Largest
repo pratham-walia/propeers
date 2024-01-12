@@ -1,0 +1,28 @@
+#include <bits/stdc++.h> 
+#include <iostream>
+#include<vector>
+int findSecondLargest(int n, vector<int> &arr)
+{
+    int a=arr[0];
+    for(int i=1;i<arr.size();i++){
+        if(arr[i]>a){
+            a=arr[i];
+        }
+    }
+    for(auto it=arr.begin();it!=arr.end();++it){
+        if(*it==a){
+            arr.erase(it);
+            it--;
+        }
+    }
+    if(arr.size()==0){
+        return -1;
+    }
+    int b=arr[0];
+    for(int i=1;i<arr.size();i++){
+        if(arr[i]>b){
+            b=arr[i];
+        }
+    }
+    return b;
+}
